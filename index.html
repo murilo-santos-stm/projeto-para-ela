@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
     <title>Nossa História Enrolada</title>
 
@@ -51,7 +51,10 @@
         position: relative;
         min-height: 100%;
         /* CORREÇÃO 2: Espaço extra no fim para garantir que o footer apareça */
-        padding-bottom: 80px;
+        padding-bottom: calc(80px + env(safe-area-inset-bottom));
+
+        -webkit-text-size-adjust: 100%;
+        text-size-adjust: 100%;
       }
 
       /* --- LANTERNAS (Fundo Fixo) --- */
@@ -129,6 +132,9 @@
         font-size: 1.05em;
         text-align: justify;
         margin-bottom: 1.2em;
+
+        overflow-wrap: break-word;
+        hyphens: auto;
       }
       .narracao {
         font-style: italic;
@@ -149,7 +155,8 @@
       main {
         max-width: 650px;
         margin: 0 auto;
-        padding: 0 20px; /* Removi o padding bottom daqui e joguei no body/footer */
+        padding: 0 calc(20px + env(safe-area-inset-right)) 0
+          calc(20px + env(safe-area-inset-left));
         position: relative;
         z-index: 2;
       }
@@ -219,7 +226,7 @@
       }
       .slide img {
         width: 100%;
-        height: 300px;
+        height: clamp(220px, 55vw, 320px);
         object-fit: cover;
         display: block;
       }
@@ -245,11 +252,20 @@
 
       /* --- MEDIA QUERIES --- */
       @media (max-width: 480px) {
+        main {
+          padding: 0 calc(16px + env(safe-area-inset-right)) 0
+            calc(16px + env(safe-area-inset-left));
+        }
+
         h1 {
           font-size: 2.5em;
         }
         h2 {
           font-size: 1.7em;
+        }
+
+        p {
+          text-align: left;
         }
 
         .cartao-ilustrado {
@@ -258,7 +274,7 @@
         }
 
         .slide img {
-          height: 250px;
+          height: clamp(200px, 60vw, 260px);
         }
 
         .adesivo-decorativo {
@@ -274,6 +290,28 @@
         }
         .adesivo-centro-topo {
           top: -25px;
+        }
+      }
+
+      @media (max-width: 768px) {
+        h1 {
+          font-size: 3em;
+        }
+        main {
+          padding: 0 calc(18px + env(safe-area-inset-right)) 0
+            calc(18px + env(safe-area-inset-left));
+        }
+      }
+
+      @media (max-height: 450px) and (orientation: landscape) {
+        header {
+          padding-top: calc(25px + env(safe-area-inset-top));
+        }
+        .slide img {
+          height: clamp(160px, 35vw, 220px);
+        }
+        .cartao-ilustrado {
+          padding: 20px 18px;
         }
       }
     </style>
@@ -310,7 +348,7 @@
           alt="Pascal"
         />
 
-        <h2>Onde Tudo (Não) Começou</h2>
+        <h2>Onde Tudo Começou</h2>
         <p>
           Ok… então você quer saber como eu conheci a garota do nome difícil?
         </p>
@@ -325,7 +363,7 @@
           foi atrás do meu nome. Perguntou aqui, perguntou ali… até que alguém
           soltou:
           <span class="narracao">“O nome dele é Murilo.”</span>
-          E pronto. Nascia uma história.
+          E pronto. Nascia a nossa história.
         </p>
       </section>
 
@@ -341,7 +379,7 @@
         </p>
         <p>
           E aí entre uma encarada e outra, eu pensei: “Tá… ela é linda. E esse
-          nome… misericórdia.” E eu fazia questão de ficar olhando também,
+          nome… misericórdia kkkk.” E eu fazia questão de ficar olhando também,
           porque quando ela sorria pra mim… já era, príncipe. Já era.
         </p>
         <p>
@@ -416,9 +454,9 @@
         </p>
         <p>
           No meu último dia, eu dei carona pra ela, tentei conversar… mas ela
-          parecia não querer papo. Quando eu puxei assunto, ela virou de costas
-          e foi indo pra parada. Aquilo ficou martelando na minha cabeça o
-          caminho todo.
+          parecia não querer papo. Quando eu tentei puxar assunto, ela virou de
+          costas e foi indo pra parada. Aquilo ficou martelando na minha cabeça
+          o caminho todo.
         </p>
         <p>
           Fui buscar minha irmã no colégio, cheguei em casa, peguei o celular e…
