@@ -36,14 +36,14 @@
         margin: 0;
         padding: 0;
         background-color: var(--cor-fundo);
-        /* CORREÇÃO 1: Fundo fixo para não cortar ao rolar */
+        /* Fundo que rola junto com a página */
         background-image: radial-gradient(
           circle at center,
           #fffef5 0%,
           #fdfbf7 70%,
           #f4eee0 100%
         );
-        background-attachment: fixed;
+        background-attachment: scroll;
         background-size: cover;
         font-family: "Lora", serif;
         color: var(--texto-principal);
@@ -59,11 +59,12 @@
 
       /* --- LANTERNAS (Fundo Fixo) --- */
       #lanternas-container {
-        position: fixed;
+        position: absolute;
         top: 0;
         left: 0;
+        right: 0;
+        bottom: 0;
         width: 100%;
-        height: 100vh;
         pointer-events: none;
         z-index: 0;
       }
@@ -521,16 +522,25 @@
         <div class="carrossel-container">
           <div class="carrossel-slides">
             <div class="slide">
+              <img src="pedido de namoro.png" alt="pedido de namoro" />
+            </div>
+            <div class="slide">
+              <img
+                src="foto que ela escolheu.png"
+                alt="foto que ela escolheu"
+              />
+            </div>
+            <div class="slide">
               <img src="buque lirios.png" alt="Buquê de lírios" />
             </div>
             <div class="slide">
               <img src="A foto em alter.png" alt="Nós dois" />
             </div>
             <div class="slide">
-              <img src="praia vestido preto.png" alt="Ela" />
+              <img src="praia vestido preto.png" alt="praia vestido preto" />
             </div>
             <div class="slide">
-              <img src="flor amarela parque.png" alt="Ela" />
+              <img src="flor amarela parque.png" alt="flor amarela parque" />
             </div>
           </div>
         </div>
@@ -567,6 +577,15 @@
             </div>
             <div class="slide">
               <img src="carimbo.png" alt="Carimbo" />
+            </div>
+            <div class="slide">
+              <img src="mirante.png" alt="Mirante" />
+            </div>
+            <div class="slide">
+              <img src="parque da cidade.png" alt="Parque da cidade" />
+            </div>
+            <div class="slide">
+              <img src="carapanari.png" alt="Carapanari" />
             </div>
           </div>
         </div>
